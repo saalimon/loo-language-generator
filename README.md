@@ -4,7 +4,7 @@ Loo Language Generator
   Loo language module is in functions directory (function.py)
   you can test this module by using loomain(inputText) function 
 ### example 
-  > from functions import loomain
+  > from functions import loomain <br>
   > loomain("ไปกินข้าว")
 ### or you can test on
   > https://loolang.herokuapp.com/
