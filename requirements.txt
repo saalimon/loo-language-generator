@@ -1,6 +1,6 @@
 
 Flask==1.1.1
-Flask-Cors==3.0.8
+Flask-Cors==3.0.9
 Flask-RESTful==0.3.7
 numpy==1.16.5
 virtualenv==16.7.7
