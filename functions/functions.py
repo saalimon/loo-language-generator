@@ -70,3 +70,16 @@ def loomain(inputText):
     print("-->",full)
     del [[syl, inSyl]]
     return full
+  def spoon(inputText):
+    syl = syllable_tokenize(inputText)
+    full = ""
+    if "<s/>" in syl :
+      syl.remove("<s/>")
+    if len(syl) == 1:
+        full = inputText 
+    elif len(syl) == 2 or len(syl) == 3::
+        full = full + "".join(spoonerism2syl(syl))
+    else:
+        raise ValueError('cannot used more than 3 syllable')
+    del [[syl]]
+    return full
