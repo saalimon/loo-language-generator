@@ -10,7 +10,6 @@ custom_dict = set(thai_words())
 custom_dict.add('ซิน')
 trie = dict_trie(dict_source=custom_dict)
 text = "อีซินมึงรู้จักเขามั้ย"
-# text = "มึงผู้ที่อยู่ตรงนั้นเยี่ยวมาก"
 token_text = word_tokenize(text, engine="newmm", custom_dict=trie)
 trueConsonantcluster = ['กร','คร','ปร','พร','ตร','กล','คล','ปล','พล','กว','คว']
 numCharacter = '(อย)'
@@ -19,10 +18,7 @@ def checkSwap(syl):
     syl[0],syl[1] = syl[1],syl[0]
   return syl
 def word2alpha(word):
-  print(word)
-  # result = re.search('[\u0E00-\u0E2E]', word)
   result = re.search('(อย)|(หง)|(หญ)|(หน)|(หม)|(หย)|(หร)|(หล)|(หว)|(กร)|(คร)|(ปร)|(พร)|(ตร)|(กล)|(คล)|(ปล)|(พล)|(กว)|(คว)|[\u0E00-\u0E2E]', word)
-  print(word,result)
   return result.group(), result.start()
 def spoonerism2syl(syl):
   syl=checkSwap(syl)
@@ -41,7 +37,7 @@ def spoonerism2syl(syl):
     s2[pos2] = alpha1
     syl[0] = "".join(s1)
     syl[1] =  "".join(s2)
-    print(s1,s2)
+  del [[alpha1,pos1,alpha2,pos2,s1,s2]]
   return syl
 def check_condition(syl):
     #list of สระอุ และ สระอู
@@ -57,11 +53,9 @@ def check_condition(syl):
         looParam = 'ซี'
     else:
         looParam = "ลู"
-    
+    del [[vowel_cond, alpha_cond, pos_cond, syl_list_cond]]
     return looParam
 def loomain(inputText):
-    # inputText = str(input())
-    # syl = re.compile("~").split(tltk.nlp.syl_segment(inputText))
     syl = syllable_tokenize(inputText)
     full = ""
     if "<s/>" in syl :
@@ -71,9 +65,8 @@ def loomain(inputText):
       if len(inSyl) == 2:
           # in 2 syll type
           full = full + "".join(spoonerism2syl(inSyl))
-          # print("".join(spoonerism2syl(inSyl)))
       else:
           return "ไม่สามารถใช้กับคำที่มากกว่า 1 พยางค์ได้"
-          # print("ไม่สามารถใช้กับคำที่มากกว่า 1 พยางค์ได้")
     print("-->",full)
+    del [[syl, inSyl]]
     return full

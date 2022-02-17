@@ -3,7 +3,7 @@ from flask_restful import Resource, Api
 from flask_cors import CORS, cross_origin
 import sys
 sys.path.insert(0, './handler')
-from handler import Data
+from handler import Loo
 from uuid import uuid4
 
 app = Flask(__name__)
@@ -19,9 +19,9 @@ def home():
     random()
     return render_template('index.html')
 
-api.add_resource(Data, '/data')
+api.add_resource(Loo, '/data')
 app.secret_key = "Miyawaki Sakura"
 
 if __name__ == '__main__':
     # Threaded option to enable multiple instances for multiple user access support
-    app.run(threaded=True, port=5000)
+    app.run(threaded=False, port=5000)
