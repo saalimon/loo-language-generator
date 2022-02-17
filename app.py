@@ -20,6 +20,7 @@ def home():
     return render_template('index.html')
 
 api.add_resource(Loo, '/data')
+api.add_resource(Spoon, '/spoon')
 app.secret_key = "Miyawaki Sakura"
 
 if __name__ == '__main__':

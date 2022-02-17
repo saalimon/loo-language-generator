@@ -77,7 +77,7 @@ def spoon(inputText):
       syl.remove("<s/>")
     if len(syl) == 1:
         full = inputText 
-    elif len(syl) == 2 or len(syl) == 3::
+    elif len(syl) == 2 or len(syl) == 3:
         full = full + "".join(spoonerism2syl(syl))
     else:
         raise ValueError('cannot used more than 3 syllable')
