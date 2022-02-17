@@ -2,7 +2,7 @@
 Flask
 Flask-Cors
 Flask-RESTful
-numpy==1.16.5
+numpy==1.21.0
 tltk==1.3.5
 pythainlp==2.1.4
 matplotlib
