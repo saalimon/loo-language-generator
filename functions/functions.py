@@ -70,7 +70,7 @@ def loomain(inputText):
     print("-->",full)
     del [[syl, inSyl]]
     return full
-  def spoon(inputText):
+def spoon(inputText):
     syl = syllable_tokenize(inputText)
     full = ""
     if "<s/>" in syl :
